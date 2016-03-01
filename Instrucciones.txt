@@ -1,0 +1,40 @@
+﻿1 - Que al crear un cromosoma tenga genes distintos                                  ok                
+	*Instancio un (1) nuevo cromosoma de tamaño n
+   
+	*Debe haber una funcion que me permita obtener ese cromosoma 
+    
+	*Verifico que los genes no esten en orden ascendente
+    
+	*Verifico desde 0 hasta n-1 que tenga todos los genes cada uno una sola vez
+    
+	*Verifico si el gen no corresponde al conteo de 0 a n-1 reinas 
+		
+
+
+2- Que funcione la mutación                                                          ok
+	*Aplicar la funcion mutar en el cromosoma
+   
+	*Verificar que el cromosoma sea distinto a la copia
+
+
+
+3- Que funcione el cruce uniforme                  				     ok
+	*Genero dos cromosomas al azar y les aplico la funcion de cruce uniforme
+   
+	*Valido que cada gen hijo sea igual al papá o a la mamá
+
+
+
+4- Que evalue correctamente los ataques entre reinas de un cromosoma     	     ok
+   
+   *Convierto el array de dos dimensiones a un cromosoma
+   
+   *Aplico la funcion contar ataques
+ 
+   *El resultado debe concordar con los ataques esperados
+
+
+
+
+   
+   

@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Chromosome - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-Chromosome-label-Overview">Overview</a>
+    <li><a href="#class-Chromosome-label-Details">Details</a>
+    <li><a href="#class-Chromosome-label-Usage">Usage</a>
+  </ul>
+</div>
+
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Array
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-clone">#clone</a>
+    
+    <li ><a href="#method-i-count_attacks">#count_attacks</a>
+    
+    <li ><a href="#method-i-crosover">#crosover</a>
+    
+    <li ><a href="#method-i-equals">#equals</a>
+    
+    <li ><a href="#method-i-generate_positions">#generate_positions</a>
+    
+    <li ><a href="#method-i-get_chromosome">#get_chromosome</a>
+    
+    <li ><a href="#method-i-get_diversity">#get_diversity</a>
+    
+    <li ><a href="#method-i-get_fitness">#get_fitness</a>
+    
+    <li ><a href="#method-i-get_mixfitness">#get_mixfitness</a>
+    
+    <li ><a href="#method-i-mutate">#mutate</a>
+    
+    <li ><a href="#method-i-queen_sort">#queen_sort</a>
+    
+    <li ><a href="#method-i-set_diversity-3D">#set_diversity=</a>
+    
+    <li ><a href="#method-i-set_mixfitness-3D">#set_mixfitness=</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Chromosome">
+  <h1 id="class-Chromosome" class="class">
+    class Chromosome
+  </h1>
+
+  <section class="description">
+    
+<pre class="ruby"><span class="ruby-constant">Chromosome</span>
+</pre>
+
+<h1 id="class-Chromosome-label-Overview">Overview<span><a href="#class-Chromosome-label-Overview">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre>Chromosome class consist of a collection of genes(array components)
+with potential solutions to n queens puzzle.</pre>
+
+<h1 id="class-Chromosome-label-Details">Details<span><a href="#class-Chromosome-label-Details">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre>This class implements characteristics the chromosome as time alive, fitness,
+status, etc. and other utilities as mutate and crosover functions</pre>
+
+<h1 id="class-Chromosome-label-Usage">Usage<span><a href="#class-Chromosome-label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<pre> Usage:
+      Chromosome.new
+      Chromosome.new(N, true)
+      Chromosome.new(N).generate_positions
+
+Authors::GnomeTeam (jeffersonamado,humbertropolis,ch.morales90) @gmail.com</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(number_of_queens=8, randomize=false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new chromosome represtation by the <strong>n queens</strong>
+puzzle.</p>
+
+<p>The design of the chromosome and its parameters help to the problem to be
+solved, where each array position is a row chessboard and value is a id
+queen</p>
+<dl class="rdoc-list note-list"><dt>number_of_queens
+<dd>
+<p>(integer) Number of queens in chessboard</p>
+</dd><dt>randomize
+<dd>
+<p>(boolean) If <strong>true</strong> randomize and return <a
+href="Chromosome.html">Chromosome</a>, if <strong>false</strong> make up a
+empty <a href="Chromosome.html">Chromosome</a> representation.</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File n-queens.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">number_of_queens</span>=<span class="ruby-value">8</span>, <span class="ruby-identifier">randomize</span>=<span class="ruby-keyword">false</span>)
+    <span class="ruby-comment">#numero de reinas</span>
+    <span class="ruby-ivar">@n_queens</span> = <span class="ruby-identifier">number_of_queens</span>
+    <span class="ruby-comment">#tiempo de vida del cromosoma</span>
+    <span class="ruby-ivar">@time_alive</span> = <span class="ruby-value">0</span>
+    <span class="ruby-comment">#aptitud del cromosoma</span>
+    <span class="ruby-ivar">@fitness</span>=<span class="ruby-value">0</span>
+    <span class="ruby-comment">#diversidad del cromosoma</span>
+    <span class="ruby-ivar">@diversity</span>=<span class="ruby-value">0</span>
+    <span class="ruby-comment">#aptitud mixta</span>
+    <span class="ruby-ivar">@mixfitness</span>=<span class="ruby-value">0</span>
+    <span class="ruby-comment">#Si el parametro es verdadero retorna el cromosoma</span>
+    <span class="ruby-comment">#con sus posiciones aleatorizadas</span>
+    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">randomize</span>)
+        <span class="ruby-identifier">generate_positions</span>()
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-clone" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clone</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates and returns a copy of this object.</p>
+
+<p>As <a href="Chromosome.html">Chromosome</a> representation are made up of
+several different parts (array elements, fitness value, etc.), copying
+becomes nontrivial.</p>
+
+<p>In the process of deep copying the <a href="Chromosome.html">Chromosome</a>
+source (self), the chromosome twin actually copy all genes</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clone-source">
+            <pre><span class="ruby-comment"># File n-queens.rb, line 226</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clone</span>()
+    <span class="ruby-comment">#cromosoma gemelo</span>
+    <span class="ruby-identifier">twin</span> = <span class="ruby-constant">Chromosome</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@n_queens</span>)
+    <span class="ruby-comment">#cada elemento es copiado desde el hermano</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">twin</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x</span>}
+    <span class="ruby-comment">#Cuento los ataque, debe ser el mismo de su hermano</span>
+    <span class="ruby-identifier">twin</span>.<span class="ruby-identifier">count_attacks</span>
+    <span class="ruby-comment">#retorno el gemelo</span>
+    <span class="ruby-identifier">twin</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-count_attacks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">count_attacks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Since <a href="Chromosome.html">Chromosome</a> representation eliminates
+row and column conflicts, the wrong solutions have only diagonal attacks
+between queens.</p>
+
+<p>This method count this diagonal attacks between queens and return an
+fitness value. The fitness values should count diagonal attacks. A queen
+that occupies i-th column and qi-th row is located on the (i + q_i - 1)
+left and (n - i + q_i)  right diagonal.</p>
+
+<p>i-th and j-th queens share a diagonal if:</p>
+
+<p><strong> (i + q_i = j + q_j ) or  (i - q_i = j- q_j) </strong></p>
+          
+          
+
+          
+          <div class="method-source-code" id="count_attacks-source">
+            <pre><span class="ruby-comment"># File n-queens.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">count_attacks</span>()
+   <span class="ruby-comment">#inicilamente la actitud es 0</span>
+       <span class="ruby-ivar">@fitness</span> =<span class="ruby-value">0</span>
+   <span class="ruby-comment">#para recorrer las diagonales</span>
+   (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-ivar">@n_queens</span><span class="ruby-operator">-</span><span class="ruby-value">2</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    ((<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>)<span class="ruby-operator">..</span><span class="ruby-ivar">@n_queens</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">j</span> <span class="ruby-operator">+</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">j</span>] <span class="ruby-keyword">or</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">-</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">j</span> <span class="ruby-operator">-</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">j</span>]
+             <span class="ruby-comment">#el incremento es entero, buscamos minimizar</span>
+             <span class="ruby-ivar">@fitness</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+   <span class="ruby-keyword">end</span>
+   <span class="ruby-comment">#retorno la actitud</span>
+   <span class="ruby-ivar">@fitness</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-crosover" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">crosover</span><span
+            class="method-args">(dad=Chromosome.new(@n_queens,true))</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method return a <a href="Chromosome.html">Chromosome</a>
+representation.</p>
+
+<p>When we crossover 2 Chromosomes we choose a gen in the <a
+href="Chromosome.html">Chromosome</a> <strong>son</strong> where we should
+get randomly father or mother gene.</p>
+
+<p>The son <a href="Chromosome.html">Chromosome</a> is then the combination of
+these parents, it is similar but not identical to them</p>
+
+<p><strong>We would never be able to get a solution because a solution
+requires a queen in each row, and crossover function does not guarantee
+this.</strong></p>
+<dl class="rdoc-list note-list"><dt>dad
+<dd>
+<p>(Chromosome) <a href="Chromosome.html">Chromosome</a> source by default is
+a <a href="Chromosome.html">Chromosome</a> representation that is generates
+randomize</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="crosover-source">
+            <pre><span class="ruby-comment"># File n-queens.rb, line 264</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">crosover</span>(<span class="ruby-identifier">dad</span>=<span class="ruby-constant">Chromosome</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@n_queens</span>,<span class="ruby-keyword">true</span>))
+    <span class="ruby-comment">#creo el cromosoma hijo</span>
+    <span class="ruby-identifier">son</span> = <span class="ruby-constant">Chromosome</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@n_queens</span>)
+    <span class="ruby-comment">#itero segun el numero de genes</span>
+    <span class="ruby-ivar">@n_queens</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">|</span>
+        <span class="ruby-comment">#si el aleatorio es 1 escojo de la madre de lo contrario del padre</span>
+        <span class="ruby-comment">#y este el gen que queda en el hijo</span>
+        <span class="ruby-identifier">son</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">2</span>) <span class="ruby-operator">==</span> <span class="ruby-value">1</span>; <span class="ruby-keyword">self</span>[<span class="ruby-identifier">i</span>] <span class="ruby-keyword">else</span> <span class="ruby-identifier">dad</span>[<span class="ruby-identifier">i</span>] <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#cuento nuevamente los ataques en el hijo</span>
+    <span class="ruby-identifier">son</span>.<span class="ruby-identifier">count_attacks</span>
+    <span class="ruby-comment">#retorno el hijo</span>
+    <span class="ruby-identifier">son</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-equals" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">equals</span><span
+            class="method-args">(pair=Chromosome.new(@n_queens,true))</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Indicates whether some other <a href="Chromosome.html">Chromosome</a> is
+“equal to” this one.</p>
+
+<p>Compares values, not references. The use of equals is similar to  == with 
+<a href="Chromosome.html">Chromosome</a> values but is generally limited to
+compare elements and equals perform elements and fitness</p>
+<dl class="rdoc-list note-list"><dt>pair
+<dd>
+<p>(Chromosome) <a href="Chromosome.html">Chromosome</a> to compare,
+<strong>true</strong> if self and pair are</p>
+</dd></dl>
+
+<p>equals and false</p>
+          
+          
+
+          
+          <div class="method-source-code" id="equals-source">
+            <pre><span class="ruby-comment"># File n-queens.rb, line 298</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">equals</span>(<span class="ruby-identifier">pair</span>=<span class="ruby-constant">Chromosome</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@n_queens</span>,<span class="ruby-keyword">true</span>))
+    <span class="ruby-identifier">state</span> = <span class="ruby-keyword">false</span>;
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">pair</span>.<span class="ruby-identifier">get_fitness</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_fitness</span> <span class="ruby-keyword">and</span> (<span class="ruby-keyword">self</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">pair</span>).<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">state</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">state</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_positions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_positions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method randomize the gene (queen) in the chomosome representation
+(chessboard)</p>
+
+<p>In the array are all the queens orderly manner from 0 to n-1, so <a
+href="Chromosome.html">Chromosome</a> representation eliminates row and
+column conflicts, then randomize the array, each queen change position and
+update fitness</p>
+
+<p><strong>Diagonal attacks between queens may exist, <a
+href="Chromosome.html#method-i-generate_positions">#generate_positions</a>
+function does not guarantee this.</strong></p>
+          
+          
+
+          
+          <div class="method-source-code" id="generate_positions-source">
+            <pre><span class="ruby-comment"># File n-queens.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_positions</span>()
+<span class="ruby-comment">#creo un array con todas la reinas y se cambian las posiciones</span>
+<span class="ruby-comment">#aleatoriamente</span>
+        <span class="ruby-identifier">array</span> = <span class="ruby-constant">Array</span>(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-ivar">@n_queens</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>).<span class="ruby-identifier">shuffle!</span>
+<span class="ruby-comment">#como heredamos de array, se los copiamos a la clase(autopuntero self)</span>
+        <span class="ruby-identifier">array</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span><span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x</span>}
+<span class="ruby-comment">#cuento los ataque que se han generado</span>
+<span class="ruby-identifier">count_attacks</span>()
+<span class="ruby-comment">#retorno el array representativo (autopuntero self)</span>
+<span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_chromosome" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_chromosome</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method return the chromosome representation</p>
+
+<p><strong>for a deep copy use clone function, this return a reference to
+current <a href="Chromosome.html">Chromosome</a> representation</strong></p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_chromosome-source">
+            <pre><span class="ruby-comment"># File n-queens.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_chromosome</span>
+    <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_diversity" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_diversity</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method return a diversity value</p>
+
+<p>The diversity value is a lower-is-better function, so we calculate it
+adding  the amount of occurences in population</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_diversity-source">
+            <pre><span class="ruby-comment"># File n-queens.rb, line 158</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_diversity</span>
+    <span class="ruby-ivar">@diversity</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_fitness" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_fitness</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method return a fitness value A attack is two queens who are able to
+attack each other. This means they are in the same diagonal, the same row
+or the same column.</p>
+
+<p>The fitness value is a lower-is-better function, so we calculate it by
+adding the amount of collisions that occur in the current <a
+href="Chromosome.html">Chromosome</a></p>
+
+<p><strong>A solution would have 0 collisions and thus a fitness of
+0</strong>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_fitness-source">
+            <pre><span class="ruby-comment"># File n-queens.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_fitness</span>
+    <span class="ruby-ivar">@fitness</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_mixfitness" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_mixfitness</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method return a diversity value</p>
+
+<p>The diversity value is a lower-is-better function, so we calculate it
+adding  the amount minimum between fitness and diversity divided the
+current generation</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_mixfitness-source">
+            <pre><span class="ruby-comment"># File n-queens.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_mixfitness</span>
+    <span class="ruby-ivar">@mixfitness</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mutate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mutate</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method change gene position in <a
+href="Chromosome.html">Chromosome</a> representation</p>
+
+<p>The offspring by mutation is a mechanism that generates random changes
+between queens, that result in “valid” new <a
+href="Chromosome.html">Chromosome</a> representation.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mutate-source">
+            <pre><span class="ruby-comment"># File n-queens.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mutate</span>()
+    <span class="ruby-comment">#Se realiza una copia profunda del cromosoma</span>
+    <span class="ruby-identifier">son</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone</span>
+    <span class="ruby-comment">#Se obtienen las posiciones a cambiar aleatoriamente</span>
+    <span class="ruby-identifier">source</span> = <span class="ruby-identifier">rand</span>(<span class="ruby-ivar">@n_queens</span>)
+    <span class="ruby-identifier">target</span> = <span class="ruby-identifier">rand</span>(<span class="ruby-ivar">@n_queens</span>)
+    <span class="ruby-comment">#Si las posiciones son diferentes</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">source</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">target</span>
+        <span class="ruby-identifier">tmp</span> = <span class="ruby-identifier">son</span>[<span class="ruby-identifier">source</span>]
+        <span class="ruby-identifier">son</span>[<span class="ruby-identifier">source</span>] = <span class="ruby-identifier">son</span>[<span class="ruby-identifier">target</span>]
+        <span class="ruby-identifier">son</span>[<span class="ruby-identifier">target</span>] = <span class="ruby-identifier">tmp</span>
+    <span class="ruby-comment">#Si las posiciones son iguales</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">source</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">target</span>
+        <span class="ruby-comment">#si es menor que el limite le aumento 1 al destino</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">target</span> <span class="ruby-operator">&lt;</span> (<span class="ruby-ivar">@n_queens</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>)
+            <span class="ruby-identifier">target</span><span class="ruby-operator">+=</span><span class="ruby-value">1</span>;
+        <span class="ruby-comment">#Si es menor se lo resto</span>
+        <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">target</span><span class="ruby-operator">-=</span><span class="ruby-value">1</span>;
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#hago el cambio</span>
+        <span class="ruby-identifier">tmp</span> = <span class="ruby-identifier">son</span>[<span class="ruby-identifier">source</span>]
+        <span class="ruby-identifier">son</span>[<span class="ruby-identifier">source</span>] = <span class="ruby-identifier">son</span>[<span class="ruby-identifier">target</span>]
+        <span class="ruby-identifier">son</span>[<span class="ruby-identifier">target</span>] = <span class="ruby-identifier">tmp</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#Cuento nuevamente los ataques</span>
+    <span class="ruby-identifier">son</span>.<span class="ruby-identifier">count_attacks</span>
+    <span class="ruby-comment">#Retorno el hijo resultante</span>
+    <span class="ruby-identifier">son</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-queen_sort" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">queen_sort</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a new array created by sorting self.</p>
+
+<p>Comparisons for the sort will be done using the &lt;=&gt; operator or using
+an optional code block. update the fitness value</p>
+          
+          
+
+          
+          <div class="method-source-code" id="queen_sort-source">
+            <pre><span class="ruby-comment"># File n-queens.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">queen_sort</span>()
+    <span class="ruby-identifier">target</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone</span>
+    <span class="ruby-identifier">target</span>.<span class="ruby-identifier">sort!</span> {
+        <span class="ruby-operator">|</span><span class="ruby-identifier">x</span>,<span class="ruby-identifier">y</span><span class="ruby-operator">|</span>  <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">y</span>
+    }
+    <span class="ruby-identifier">target</span>.<span class="ruby-identifier">count_attacks</span>
+    <span class="ruby-identifier">target</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_diversity-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_diversity=</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method set a new diversity value</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_diversity-3D-source">
+            <pre><span class="ruby-comment"># File n-queens.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_diversity=</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-ivar">@diversity</span> = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_mixfitness-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_mixfitness=</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method set a new mixfitness value</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_mixfitness-3D-source">
+            <pre><span class="ruby-comment"># File n-queens.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_mixfitness=</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-ivar">@mixfitness</span> = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a string representation of the object.</p>
+
+<p>If the method takes a primitive data type as an argument, then the String
+object representing the primitive data type value is return.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File n-queens.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+    <span class="ruby-comment">#Retorno el string con el contenido del cromosoma entre corchetes y la reina</span>
+    <span class="ruby-comment">#separda  entre comas, con el valor del fitness</span>
+   <span class="ruby-node">&quot;Chromosome: [#{self.join(&quot;, &quot;)}] with fitness #{@fitness}, diversity #{@diversity} and mixed #{@mixfitness}\n&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
