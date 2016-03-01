@@ -535,19 +535,19 @@ end
 ################################################################################
 # PRUEBA
 ################################################################################
-#~ parameters = ARGV.length
+parameters = ARGV.length
 
-#~ if parameters == 0
-    #~ NQueensEA.new
-#~ elsif parameters == 1
-    #~ NQueensEA.new ARGV[0].to_i
-#~ elsif parameters == 2
-    #~ NQueensEA.new ARGV[0].to_i,ARGV[1].to_i
-#~ elsif parameters == 3
-    #~ NQueensEA.new ARGV[0].to_i,ARGV[1].to_i,ARGV[2].to_i
-#~ elsif parameters == 4
-    #~ NQueensEA.new ARGV[0].to_i,ARGV[1].to_i,ARGV[2].to_i, ARGV[3].to_i
-#~ elsif parameters == 5
-    #~ NQueensEA.new ARGV[0].to_i,ARGV[1].to_i,ARGV[2].to_i, ARGV[3].to_i , true   
-#~ end
+if parameters == 0
+    NQueensEA.new
+elsif parameters == 1
+    NQueensEA.new ARGV[0].to_i
+elsif parameters == 2
+    NQueensEA.new ARGV[0].to_i,ARGV[1].to_i
+elsif parameters == 3
+    NQueensEA.new ARGV[0].to_i,ARGV[1].to_i,ARGV[2].to_i
+elsif parameters == 4
+    NQueensEA.new ARGV[0].to_i,ARGV[1].to_i,ARGV[2].to_i, ARGV[3].to_i
+elsif parameters == 5
+     NQueensEA.new ARGV[0].to_i,ARGV[1].to_i,ARGV[2].to_i, ARGV[3].to_i , true   
+end
 
